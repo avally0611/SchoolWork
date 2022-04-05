@@ -10,6 +10,10 @@ package UI;
  */
 public class Calculator extends javax.swing.JFrame {
 
+    int ans = 0;
+    char operator = '+';
+    int ans2 = 0;
+
     /**
      * Creates new form Calculator
      */
@@ -188,11 +192,12 @@ public class Calculator extends javax.swing.JFrame {
                     .addComponent(button7, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,65 +217,86 @@ public class Calculator extends javax.swing.JFrame {
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("2");
+        OutputOne.setText(OutputOne.getText() + "2");
     }//GEN-LAST:event_button2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("3");
+        OutputOne.setText(OutputOne.getText() + "3");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("1");
+        OutputOne.setText(OutputOne.getText() + "1");
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("4");
+        OutputOne.setText(OutputOne.getText() + "4");
     }//GEN-LAST:event_button4ActionPerformed
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("5");
+        OutputOne.setText(OutputOne.getText() + "5");
     }//GEN-LAST:event_button5ActionPerformed
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("6");
+        OutputOne.setText(OutputOne.getText() + "6");
     }//GEN-LAST:event_button6ActionPerformed
 
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("7");
+        OutputOne.setText(OutputOne.getText() + "7");
     }//GEN-LAST:event_button7ActionPerformed
 
     private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("8");
+        OutputOne.setText(OutputOne.getText() + "8");
     }//GEN-LAST:event_button8ActionPerformed
 
     private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("9");
+        OutputOne.setText(OutputOne.getText() + "9");
     }//GEN-LAST:event_button9ActionPerformed
 
     private void buttonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlusActionPerformed
         // TODO add your handling code here:
-        int num1 = Integer.parseInt(OutputOne.getText());
-        OutputOne.setText("+");
+        ans = Integer.parseInt(OutputOne.getText());
+        operator = '+';
+        OutputTwo.setText(ans + "+");
+        OutputOne.setText("");
+
     }//GEN-LAST:event_buttonPlusActionPerformed
 
     private void buttonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMinusActionPerformed
         // TODO add your handling code here:
-        OutputOne.setText("-");
+        ans = Integer.parseInt(OutputOne.getText());
+        operator = '-';
+        OutputTwo.setText(ans + "-");
+        OutputOne.setText("");
     }//GEN-LAST:event_buttonMinusActionPerformed
 
     private void buttonEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEqualActionPerformed
         // TODO add your handling code here:
-        int num2 = Integer.parseInt(OutputOne.getText());
-        OutputOne.setText("=");
-        
+        ans2 = Integer.parseInt(OutputOne.getText());
+        OutputOne.setText(" ");
+        OutputOne.setText(OutputTwo.getText() + ans2 + "=");
+
+        if (operator == '+') {
+            ans += ans2;
+            OutputTwo.setText("" + ans);
+        } else if (operator == '-') {
+            ans -= Integer.parseInt(OutputOne.getText());
+            OutputTwo.setText("" + ans);
+        } else if (operator == '*') {
+            ans *= Integer.parseInt(OutputOne.getText());
+            OutputTwo.setText("" + ans);
+        } else if (operator == '/') {
+            ans /= Integer.parseInt(OutputOne.getText());
+            OutputTwo.setText("" + ans);
+        }
+
     }//GEN-LAST:event_buttonEqualActionPerformed
 
     /**
@@ -280,7 +306,7 @@ public class Calculator extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

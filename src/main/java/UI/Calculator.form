@@ -83,11 +83,13 @@
                   <Component id="buttonPlus" alignment="3" min="-2" pref="77" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="button5" min="-2" pref="77" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="button2" alignment="1" min="-2" pref="77" max="-2" attributes="0"/>
-                  <Component id="buttonMinus" alignment="3" min="-2" pref="77" max="-2" attributes="0"/>
-                  <Component id="button8" alignment="3" min="-2" pref="77" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="button5" min="-2" pref="77" max="-2" attributes="0"/>
+                      <Component id="buttonMinus" alignment="3" min="-2" pref="77" max="-2" attributes="0"/>
+                      <Component id="button8" alignment="3" min="-2" pref="77" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
