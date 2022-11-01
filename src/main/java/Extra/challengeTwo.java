@@ -32,6 +32,13 @@ public class challengeTwo {
             }
 
             case 2:
+                int nameLen = name.length();
+                for (int i = 0; i < nameLen; i++) {
+                    nameLen -= 1;
+                    char let = name.charAt(nameLen);
+                    System.out.println(let);
+
+                }
         }
     }
 
