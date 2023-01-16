@@ -10,8 +10,8 @@ package Methods;
  */
 public class EggsSim {
 
-    int totalEggs;
-    int totalPower;
+    static int totalEggs;
+    static int totalPower;
 
     public static void main(String[] args) {
         totalEggs = 25;
