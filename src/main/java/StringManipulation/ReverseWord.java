@@ -10,20 +10,23 @@ import javax.swing.JOptionPane;
  *
  * @author aaminahv
  */
-public class PaswwordChecker {
+public class ReverseWord {
 
+    //reverse word
     public static void main(String[] args) {
+        String input = JOptionPane.showInputDialog("Enter a word");
 
-        String password = JOptionPane.showInputDialog("Enter password");
+        String reversed = "";
 
-        boolean isUpperCase = false;
-        boolean isLowerCase = false;
-        boolean isLetter = false;
-        boolean isNum = false;
-        for (int i = 0; i < password.length() - 1; i++) {
-            char letter = password.charAt(i);
+        for (int i = input.length() - 1; i >= 0; i--) {
+
+            char let = input.charAt(i);
+            reversed += let;
 
         }
+
+        System.out.println("The word you entered reversed is: " + reversed);
+
     }
 
 }
