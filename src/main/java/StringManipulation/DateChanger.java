@@ -13,8 +13,7 @@ import javax.swing.JOptionPane;
 public class DateChanger {
 
     //chnage date from dd/mm/yy to yy-mm-dd
-    public static void main(String[] args) {
-        String date = JOptionPane.showInputDialog("Enter date with format dd/mm/yy");
+    public static String dateChanger(String date) {
 
         String[] dates = date.split("/");
         String newDate = "";
@@ -29,7 +28,7 @@ public class DateChanger {
         newDate += "-";
         newDate += day;
 
-        System.out.println("The new date format is: " + newDate);
+        return newDate;
     }
 
 }

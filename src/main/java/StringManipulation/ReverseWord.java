@@ -12,10 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class ReverseWord {
 
-    //reverse word
-    public static void main(String[] args) {
-        String input = JOptionPane.showInputDialog("Enter a word");
-
+    public static String reverse(String input) {
         String reversed = "";
 
         for (int i = input.length() - 1; i >= 0; i--) {
@@ -25,8 +22,7 @@ public class ReverseWord {
 
         }
 
-        System.out.println("The word you entered reversed is: " + reversed);
-
+        return reversed;
     }
 
 }

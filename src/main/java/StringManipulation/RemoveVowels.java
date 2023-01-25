@@ -4,34 +4,27 @@
  */
 package StringManipulation;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author aaminahv
  */
 public class RemoveVowels {
 
-    public static void main(String[] args) {
-        String word = JOptionPane.showInputDialog("enter a word - lowercase only please");
+    public static String withoutVowels(String word) {
+        String withoutVowels = "";
+        for (int i = 0; i <= word.length() - 1; i++) {
+            char let = word.charAt(i);
 
-        while ((word.contains("a")) || (word.contains("e")) || (word.contains("i")) || (word.contains("o")) || (word.contains("u"))) {
-            if (word.contains("a")) {
-                word.replaceAll("a", " ");
-            } else if (word.contains("e")) {
-                word.replaceAll("e", " ");
-            } else if (word.contains("i")) {
-                word.replaceAll("i", " ");
-            } else if (word.contains("o")) {
-                word.replaceAll("o", " ");
-            } else if (word.contains("u")) {
-                word.replaceAll("u", " ");
+            if ((let != 'a') || (let != 'e')
+                (let != 'i') || (let != 'o') || (let != 'u')
+
+                ) {
+                withoutVowels += let;
             }
 
         }
 
-        System.out.println(word);
-
+        return withoutVowels;
     }
 
 }
