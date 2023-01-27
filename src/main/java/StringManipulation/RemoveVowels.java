@@ -12,16 +12,12 @@ public class RemoveVowels {
 
     public static String withoutVowels(String word) {
         String withoutVowels = "";
+        word = word.toLowerCase();
         for (int i = 0; i <= word.length() - 1; i++) {
             char let = word.charAt(i);
-
-            if ((let != 'a') || (let != 'e')
-                (let != 'i') || (let != 'o') || (let != 'u')
-
-                ) {
+            if (let != 'a' && let != 'e' && let != 'i' && let != 'o' && let != 'u') {
                 withoutVowels += let;
             }
-
         }
 
         return withoutVowels;

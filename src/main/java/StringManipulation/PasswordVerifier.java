@@ -11,50 +11,38 @@ import javax.swing.JOptionPane;
  * @author Aaminah1
  */
 public class PasswordVerifier {
-    public static void main(String[] args) {
-        String userPassword = JOptionPane.showInputDialog("Enter your password");
-        
+
+    public static boolean passwordChecker(String userPassword) {
         boolean isLong = false;
         boolean isUpper = false;
         boolean isLower = false;
         boolean isNumber = false;
         boolean isSpecial = false;
-        
-        for (int i = 0; i < userPassword.length() - 1; i++) 
-        {
-            if (userPassword.length() >= 8)
-            {
+        boolean isStrong = false;
+
+        for (int i = 0; i < userPassword.length() - 1; i++) {
+            if (userPassword.length() >= 8) {
                 char let = userPassword.charAt(i);
-                if (Character.isUpperCase(let))
-                {
+                if (Character.isUpperCase(let)) {
                     isUpper = true;
-                }
-                else if (Character.isLowerCase(let))
-                {
+                } else if (Character.isLowerCase(let)) {
                     isLower = true;
-                }
-                else if (Character.isDigit(let))
-                {
+                } else if (Character.isDigit(let)) {
                     isNumber = true;
-                }
-                else 
-                {
+                } else {
                     isSpecial = true;
                 }
             }
-            
+
         }
-        
-        if ((isUpper)&&(isLower)&&(isNumber)&&(isSpecial))
-        {
-            System.out.println("Your pasword is safe");
+
+        if ((isUpper) && (isLower) && (isNumber) && (isSpecial)) {
+            isStrong = true;
+        } else {
+            isStrong = false;
         }
-        else
-        {
-            System.out.println("Your password is not safe enough, retry!");
-        }
-            
+
+        return isStrong;
     }
-    
-    
+
 }

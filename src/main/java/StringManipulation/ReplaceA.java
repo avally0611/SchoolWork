@@ -15,7 +15,7 @@ public class ReplaceA {
     public static String replace(String word) {
         String newWord = "";
 
-        for (int i = 0; i < word.length() - 1; i++) {
+        for (int i = 0; i <= word.length() - 1; i++) {
             char let = word.charAt(i);
             if (let != 'a') {
                 newWord += let;

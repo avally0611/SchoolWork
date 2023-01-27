@@ -89,6 +89,11 @@ public class StringManipulationUI extends javax.swing.JFrame {
         });
 
         palindromeButton.setText("Palindrome?");
+        palindromeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                palindromeButtonActionPerformed(evt);
+            }
+        });
 
         dateButton.setText("Date Format (dd/mm/yy)");
         dateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -177,6 +182,13 @@ public class StringManipulationUI extends javax.swing.JFrame {
 
     private void passwordCheckerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordCheckerButtonActionPerformed
         // TODO add your handling code here:
+        String password = inputTextField.getText();
+        boolean isSecure = PasswordVerifier.passwordChecker(password);
+        if (isSecure) {
+            outputArea.setText("The password is secure");
+        } else {
+            outputArea.setText("The word is not secure");
+        }
     }//GEN-LAST:event_passwordCheckerButtonActionPerformed
 
     private void dateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateButtonActionPerformed
@@ -202,6 +214,18 @@ public class StringManipulationUI extends javax.swing.JFrame {
         String word = inputTextField.getText();
         outputArea.setText(RemoveVowels.withoutVowels(word));
     }//GEN-LAST:event_vowelRemoverButtonActionPerformed
+
+    private void palindromeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_palindromeButtonActionPerformed
+        // TODO add your handling code here:
+        String word = inputTextField.getText();
+        boolean isPalindrome = Palindrome.getPalindrome(word);
+        if (isPalindrome) {
+            outputArea.setText("The word is a palindrome");
+        } else {
+            outputArea.setText("The word is not a palindrome");
+        }
+
+    }//GEN-LAST:event_palindromeButtonActionPerformed
 
     /**
      * @param args the command line arguments

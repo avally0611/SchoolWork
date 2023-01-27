@@ -4,16 +4,13 @@
  */
 package StringManipulation;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author aaminahv
  */
 public class Palindrome {
 
-    public static void main(String[] args) {
-        String word = JOptionPane.showInputDialog("enter word to check if it is a palindrome");
+    public static boolean getPalindrome(String word) {
 
         boolean isPalindrome = false;
 
@@ -25,10 +22,12 @@ public class Palindrome {
         }
 
         if (word.equals(reversedWord)) {
-            System.out.println("The word you entered is a Palindrome");
+            isPalindrome = true;
         } else {
-            System.out.println("The word is not a palindrome");
+            isPalindrome = false;
         }
+
+        return isPalindrome;
     }
 
 }
