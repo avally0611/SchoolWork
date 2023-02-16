@@ -32,7 +32,8 @@ public class MarkAve {
         }
 
         System.out.println("This is the array before sorting: " + totalMarks);
-        Arrays.sort(totalMarks);
+        System.out.println("\n");
+        Arrays.sort(totalMarks, 0, size + 1);
         System.out.println("This is the array after sorting: " + totalMarks);
         
         double addedMarks = 0.0;
