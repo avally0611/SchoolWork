@@ -13,7 +13,12 @@ public class PersonUI {
     public static void main(String[] args) {
 
         PersonManager p = new PersonManager();
+        //System.out.println(p);
+        System.out.println(p.getName(4));
+        System.out.println(p.getEmail(4));
+        System.out.println(p.getAvgHeight());
+        System.out.println(p.getAvgWeight());
+        System.out.println(p.getBMI(4));
 
-        p.peeps[0] = 
     }
 }

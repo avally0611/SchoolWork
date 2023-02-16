@@ -1,4 +1,4 @@
 1#Mickey#Mouse#20.2#4.50
-2#Bob#BUilder#82.5#1.43
-3#Cat#Whiskers#103.87#0.54
+2#Bob#Builder#82.5#1.43
+3#Cat#meow#103.87#0.54
 4#Dog#bark#85.67#1.23

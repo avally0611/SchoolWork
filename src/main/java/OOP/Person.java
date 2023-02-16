@@ -73,4 +73,8 @@ public class Person {
         return bmi;
     }
 
+    public String toString() {
+        return this.ID + "\t" + this.firstName + "\t" + this.lastName + "\t" + this.height + "\t" + this.weight;
+    }
+
 }
