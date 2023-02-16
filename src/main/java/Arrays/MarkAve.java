@@ -6,6 +6,7 @@ package Arrays;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -30,6 +31,10 @@ public class MarkAve {
 
         }
 
+        System.out.println("This is the array before sorting: " + totalMarks);
+        Arrays.sort(totalMarks);
+        System.out.println("This is the array after sorting: " + totalMarks);
+        
         double addedMarks = 0.0;
         for (int i = 0; i < numMarks; i++) {
             addedMarks += totalMarks[i];
