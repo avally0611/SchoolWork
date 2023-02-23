@@ -6,6 +6,7 @@ package Arrays;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class SortedArrays {
 
     public static void main(String[] args) throws FileNotFoundException {
         File f = new File("data\\marks.txt");
-        Scanner sc = new Scanner(f);
+        Scanner sc = new Scanner(f).useLocale(Locale.UK);
 
         int size = 0;
         double[] originalArray = new double[50];
@@ -34,38 +35,48 @@ public class SortedArrays {
             System.out.println(originalArray[i]);
         }
 
-        double[] sortedArray = arraySorter(originalArray, size);
-        System.out.println("\nThis is the sorted array: ");
+//        double[] insertionArray = insertionSort(originalArray, size);
+//        System.out.println("\nThis is the insertion sorted array: ");
+//        for (int i = 0; i < size; i++) {
+//            System.out.println(insertionArray[i]);
+//        }
+        double[] bubbleArray = bubbleSort(originalArray, size);
+        System.out.println("\nThis is the bubble sorted array: ");
         for (int i = 0; i < size; i++) {
-            System.out.println(sortedArray[i]);
+            System.out.println(bubbleArray[i]);
         }
+
     }
 
-    public static double[] arraySorter(double[] originalArray, int arraySize) {
+    public static double[] insertionSort(double[] originalArray, int arraySize) {
 
-        double[] sortedArray = new double[50];
-        double hiNum = 0.0;
-        int hiIndex = 0;
-
-        for (int j = 0; j < arraySize; j++) {
-            for (int i = 0; i < arraySize - j; i++) {
-                double currentNum = originalArray[i];
-
-                if (currentNum > hiNum) {
-                    hiNum = currentNum;
-                    hiIndex = i;
-                    originalArray[hiIndex] = originalArray[arraySize - 1];
-                    originalArray[arraySize - 1] = hiNum;
-
-                    sortedArray[i] = hiNum;
-
+        for (int i = 0; i < arraySize; i++) {
+            for (int j = 0; j < arraySize; j++) {
+                if (originalArray[j] < originalArray[i]) {
+                    double current = originalArray[i];
+                    originalArray[i] = originalArray[j];
+                    originalArray[j] = current;
                 }
-
             }
-
         }
 
-        return sortedArray;
+        return originalArray;
+    }
+
+    //bubble sort
+    public static double[] bubbleSort(double[] originalArray, int arraySize) {
+        for (int i = arraySize - 1; i <= 0; i++) {
+            for (int j = 0; j < arraySize; j++) {
+                if (originalArray[j + 1] < originalArray[j]) {
+                    double current = originalArray[j];
+                    originalArray[j] = originalArray[j + 1];
+                    originalArray[j + 1] = current;
+                }
+            }
+        }
+
+        return originalArray;
+
     }
 
 }
