@@ -75,25 +75,23 @@ public class SortedArrays {
         int hiIndex = 0;
         int numComparisons = 0;
         int numSwops = 0;
-        boolean sorted = true;
-        int pos = 0;
+        int lowestIndex = 0;
 
         for (int i = 0; i < arraySize - 1; i++) {
-            pos = i;
+            lowestIndex = i;
             for (int j = i + 1; j < arraySize; j++) {
                 numComparisons++;
-                if (originalArray[j] < originalArray[pos]) {
-                    pos = j;
+                if (originalArray[j] < originalArray[lowestIndex]) {
+                    lowestIndex = j;
                     numSwops++;
-                    sorted = false;
 
                 }
 
-                double current = originalArray[i];
-                originalArray[i] = originalArray[pos];
-                originalArray[pos] = current;
-
             }
+
+            double current = originalArray[i];
+            originalArray[i] = originalArray[lowestIndex];
+            originalArray[lowestIndex] = current;
         }
 
         System.out.println("Improved insertion Sort\nNum Comp: " + numComparisons + "\nNum Swops: " + numSwops);
