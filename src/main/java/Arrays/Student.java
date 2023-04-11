@@ -5,6 +5,7 @@
 package Arrays;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -17,15 +18,15 @@ public class Student {
     private String[] subjects;
     private int[] yearMarks;
 
-    public Student() {
+    public Student() throws FileNotFoundException {
         subjects = new String [15];
         yearMarks = new int[15];
         
-    
-        Scanner fileSc = new Scanner("data\\Students.txt");
         
-        
+        File f = new File("data/Students.txt");
+        Scanner fileSc = new Scanner(f);
         name = fileSc.nextLine();
+      
         String line = fileSc.nextLine();
         Scanner subjectSc = new Scanner(line).useDelimiter("#");
         for (int i = 0; i < subjects.length; i++)
@@ -36,7 +37,7 @@ public class Student {
         Scanner markSc = new Scanner(nextLine).useDelimiter("#");
         for (int i = 0; i < yearMarks.length; i++)
         {
-            subjects[i] = markSc.next();
+            yearMarks[i] = markSc.nextInt();
         }
         
             
