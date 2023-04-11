@@ -40,43 +40,110 @@ public class SortedArrays {
 //        for (int i = 0; i < size; i++) {
 //            System.out.println(insertionArray[i]);
 //        }
-        double[] bubbleArray = bubbleSort(originalArray, size);
-        System.out.println("\nThis is the bubble sorted array: ");
+        improvedInsertionSort(originalArray, size);
+        System.out.println("\nThis is the  sorted array: ");
         for (int i = 0; i < size; i++) {
-            System.out.println(bubbleArray[i]);
+            System.out.println(originalArray[i]);
         }
 
     }
 
-    public static double[] insertionSort(double[] originalArray, int arraySize) {
+//    public static void insertionSort(double[] originalArray, int arraySize) {
+//
+//        int numComparisons = 0;
+//        int numSwops = 0;
+//        boolean sorted = true;
+//        for (int i = 0; i < arraySize; i++) {
+//            for (int j = 0; j < arraySize; j++) {
+//                numComparisons++;
+//                if (originalArray[j] < originalArray[i]) {
+//                    numSwops++;
+//                    double current = originalArray[i];
+//                    originalArray[i] = originalArray[j];
+//                    originalArray[j] = current;
+//                }
+//            }
+//
+//        }
+//
+//        System.out.println("\nNum Comp: " + numComparisons + "\nNum Swops: " + numSwops);
+//
+//    }
+    public static void improvedInsertionSort(double[] originalArray, int arraySize) {
 
-        for (int i = 0; i < arraySize; i++) {
-            for (int j = 0; j < arraySize; j++) {
-                if (originalArray[j] < originalArray[i]) {
-                    double current = originalArray[i];
-                    originalArray[i] = originalArray[j];
-                    originalArray[j] = current;
+        double hiNum = 0.0;
+        int hiIndex = 0;
+        int numComparisons = 0;
+        int numSwops = 0;
+        boolean sorted = true;
+        int pos = 0;
+
+        for (int i = 0; i < arraySize - 1; i++) {
+            pos = i;
+            for (int j = i + 1; j < arraySize; j++) {
+                numComparisons++;
+                if (originalArray[j] < originalArray[pos]) {
+                    pos = j;
+                    numSwops++;
+                    sorted = false;
+
                 }
+
+                double current = originalArray[i];
+                originalArray[i] = originalArray[pos];
+                originalArray[pos] = current;
+
             }
         }
 
-        return originalArray;
+        System.out.println("Improved insertion Sort\nNum Comp: " + numComparisons + "\nNum Swops: " + numSwops);
+
     }
 
     //bubble sort
-    public static double[] bubbleSort(double[] originalArray, int arraySize) {
-        for (int i = arraySize - 1; i <= 0; i++) {
-            for (int j = 0; j < arraySize; j++) {
-                if (originalArray[j + 1] < originalArray[j]) {
-                    double current = originalArray[j];
-                    originalArray[j] = originalArray[j + 1];
-                    originalArray[j + 1] = current;
-                }
-            }
-        }
-
-        return originalArray;
-
-    }
-
+//    public static double[] bubbleSort(double[] originalArray, int arraySize) {
+//        int numComparisons = 0;
+//        int numSwops = 0;
+//        for (int i = arraySize; i >= 0; i--) {
+//            for (int j = 0; j < arraySize - 1; j++) {
+//                numComparisons++;
+//                if (originalArray[j + 1] < originalArray[j]) {
+//                    numSwops++;
+//                    double current = originalArray[j];
+//                    originalArray[j] = originalArray[j + 1];
+//                    originalArray[j + 1] = current;
+//                }
+//            }
+//        }
+//
+//        System.out.println("Bubble Sort\nNum Comp: " + numComparisons + "\nNum Swops: " + numSwops);
+//
+//        return originalArray;
+//
+//    }
+    //bubble sort
+//    public static void immprovedBubbleSort(double[] originalArray, int arraySize) {
+//        int numComparisons = 0;
+//        int numSwops = 0;
+//        boolean sorted = true;
+//        for (int i = arraySize; i >= 0; i--) {
+//            for (int j = 0; j < arraySize - 1; j++) {
+//                numComparisons++;
+//                if (originalArray[j + 1] < originalArray[j]) {
+//                    numSwops++;
+//                    sorted = false;
+//                    double current = originalArray[j];
+//                    originalArray[j] = originalArray[j + 1];
+//                    originalArray[j + 1] = current;
+//                }
+//            }
+//            if (sorted) {
+//                break;
+//            }
+//            sorted = true;
+//        }
+//
+//        System.out.println("Bubble Sort\nNum Comp: " + numComparisons + "\nNum Swops: " + numSwops);
+//
+//    }
 }
