@@ -31,16 +31,13 @@ public class Student {
         for (int i = 0; i < subjects.length; i++) {
             subjects[i] = subjectSc.next();
         }
+
         String nextLine = fileSc.nextLine();
         Scanner markSc = new Scanner(nextLine).useDelimiter("#");
         for (int i = 0; i < yearMarks.length; i++) {
             yearMarks[i] = markSc.nextInt();
         }
 
-    }
-
-    public String toString() {
-        return "Student{" + "name=" + name + ", subjects=" + subjects + ", yearMarks=" + yearMarks + '}';
     }
 
     public void yearReport() {
@@ -56,37 +53,29 @@ public class Student {
     }
 
     public void markSort() {
-        bubbleSort();
-    }
-
-    public int markSearch(int mark) {
-        return binarySearch(mark);
-    }
-
-    public void bubbleSort() {
-        for (int i = yearMarks.length - 1; i >= 0 ; i--) 
-        {
+        for (int i = yearMarks.length - 1; i >= 0; i--) {
             boolean sorted = true;
-            for (int j = 0; j < yearMarks.length; j++) 
-            {
-                if (yearMarks[j + 1] > yearMarks[j])
-                {
+            for (int j = 0; j < i; j++) {
+                if (yearMarks[j + 1] > yearMarks[j]) {
                     int temp = yearMarks[j];
                     yearMarks[j] = yearMarks[j + 1];
                     yearMarks[j + 1] = temp;
+
+                    String tempSub = subjects[j];
+                    subjects[j] = subjects[j + 1];
+                    subjects[j + 1] = tempSub;
+
                     sorted = false;
                 }
             }
-            if (sorted)
-            {
+            if (sorted) {
                 break;
             }
-            
 
         }
     }
 
-    public int binarySearch(int mark) {
+    public int markSearch(int mark) {
         int start = 0;
         int end = yearMarks.length - 1;
 
@@ -95,9 +84,9 @@ public class Student {
 
             if (yearMarks[mid] == mark) {
                 return mid;
-            } else if (yearMarks[mid] > mark) {
-                end = mid - 1;
             } else if (yearMarks[mid] < mark) {
+                end = mid - 1;
+            } else {
                 start = mid + 1;
             }
         }
