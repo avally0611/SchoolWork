@@ -64,22 +64,24 @@ public class Student {
     }
 
     public void bubbleSort() {
-        for (int i = 1; i < yearMarks.length; i++) {
-            int next = yearMarks[i];
-            String nextSub = subjects[i];
-            int j;
-            for (j = i - 1; j >= 0; j--) {
-                if (next > yearMarks[j]) {
-                    int holder = yearMarks[j];
-                    yearMarks[j] = next;
-                    yearMarks[i] = holder;
-
-                    String holderSub = subjects[j];
-                    subjects[j] = nextSub;
-                    subjects[i] = holderSub;
-
+        for (int i = yearMarks.length - 1; i >= 0 ; i--) 
+        {
+            boolean sorted = true;
+            for (int j = 0; j < yearMarks.length; j++) 
+            {
+                if (yearMarks[j + 1] > yearMarks[j])
+                {
+                    int temp = yearMarks[j];
+                    yearMarks[j] = yearMarks[j + 1];
+                    yearMarks[j + 1] = temp;
+                    sorted = false;
                 }
             }
+            if (sorted)
+            {
+                break;
+            }
+            
 
         }
     }
