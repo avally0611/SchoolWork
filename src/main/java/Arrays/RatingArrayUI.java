@@ -14,7 +14,8 @@ public class RatingArrayUI {
     public static void main(String[] args) throws FileNotFoundException {
         RatingsArray r = new RatingsArray();
         r.sort();
-        System.out.println("NUMBER SUMMARY:" + "\n-------------" + "\nLowest = " + r.getElement(0) + "\nHighest = " + r.getElement(r.getSize()-1) + "\nAverage = " + r.getAverage());
+        System.out.println(r.toString());
+        System.out.println("NUMBER SUMMARY:" + "\n-------------" + "\nLowest = " + r.getElement(r.getSize() - 1) + "\nHighest = " + r.getElement(0) + "\nAverage = " + r.getAverage());
     }
     
 }

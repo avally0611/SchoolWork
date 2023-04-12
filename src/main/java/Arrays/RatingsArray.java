@@ -13,23 +13,23 @@ import java.util.Scanner;
  * @author Aaminah1
  */
 public class RatingsArray {
-    int[] ratings;
-    int size;
+    private int[] ratings;
+    private int size;
 
     public RatingsArray() throws FileNotFoundException {
         ratings = new int[150];
-        
+        size = 0;
         Scanner sc = new Scanner(new File ("data\\ClientRatings.txt"));
         
-        for (int i = 0; i < ratings.length; i++) 
+        
+        
+        while(sc.hasNext())
         {
-            while(sc.hasNext())
-            {
-                ratings[i] = sc.nextInt();
-                size++;
-            }
-            
+            ratings[size] = sc.nextInt();
+            size++;
         }
+            
+        
     }
 
     public int getSize() {
@@ -38,27 +38,29 @@ public class RatingsArray {
     
     public int getElement(int index)
     {
-        int start = 0;
-        int end = ratings.length - 1 ;
         
-        while (start <= end)
-        {
-            int mid = (start + end)/2;
-            if (ratings[mid] == ratings[index])
-            {
-                return ratings[mid];
-            }
-            else if (ratings[mid] > ratings[index])
-            {
-                end = mid - 1;
-            }
-            else if (ratings[mid] < ratings[index])
-            {
-                start = mid + 1;
-            }
-        }
-        
-        return -1;
+        return ratings[index];
+//        int start = 0;
+//        int end = ratings.length - 1 ;
+//        
+//        while (start <= end)
+//        {
+//            int mid = (start + end)/2;
+//            if (ratings[mid] == ratings[index])
+//            {
+//                return ratings[mid];
+//            }
+//            else if (ratings[mid] > ratings[index])
+//            {
+//                end = mid - 1;
+//            }
+//            else if (ratings[mid] < ratings[index])
+//            {
+//                start = mid + 1;
+//            }
+//        }
+//        
+//        return -1;
     }
     
     public int getFirst()
@@ -68,13 +70,13 @@ public class RatingsArray {
     
     public int getLast()
     {
-        return ratings[ratings.length - 1];
+        return ratings[size - 1];
     }
 
-    @Override
+    
     public String toString() {
         String output = "";
-        for (int i = 0; i < ratings.length; i++) {
+        for (int i = 0; i < size ; i++) {
             output += ratings[i] + " ";
         }
         return output;
@@ -82,8 +84,8 @@ public class RatingsArray {
     
     public double getAverage()
     {
-        int total = 0;
-        for (int i = 0; i < ratings.length; i++) 
+        double total = 0;
+        for (int i = 0; i < size - 1; i++) 
         {
             total += ratings[i];
         }
@@ -99,16 +101,17 @@ public class RatingsArray {
     
     public void sort()
     {
-        for (int i = ratings.length-1; i <= 0; i--) 
+        for (int i = size - 1; i >= 0; i--) 
         {
             boolean isSorted = true;
-            for (int j = 0; j < ratings.length - 1; j++) 
+            for (int j = 0; j < size; j++) 
             {
                 if (ratings[j + 1] > ratings[j])
                 {
                     int temp = ratings[j];
                     ratings[j] = ratings[j + 1];
                     ratings[j + 1] = temp;
+                    isSorted = false;
                 }
             }
             if(isSorted)
