@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class ArraySorting {
 
-    private int[] marks;
+    private static double[] marks;
 
     public static void main(String[] args) {
         try {
@@ -25,7 +25,7 @@ public class ArraySorting {
             Scanner sc = new Scanner(f).useLocale(Locale.UK);
 
             int size = 0;
-            double[] marks = new double[10];
+            marks = new double[10];
             int numMarks = 0;
 
             while (sc.hasNext()) {
@@ -45,12 +45,31 @@ public class ArraySorting {
         }
     }
 
-    //
+    //help me pls - improved
     public void selectionSort() {
-        for (int i = 0; i < marks.length - 1; i++) {
+        for (int i = 0; i < marks.length; i++) {
+            int lowestIndex = i;
             for (int j = i + 1; j < marks.length; j++) {
-
+                if (marks[j] > marks[lowestIndex]) {
+                    lowestIndex = j;
+                }
             }
+
+            //swop
+        }
+    }
+
+    //help me pls - improved
+    public void selectionSort() {
+        for (int i = size - 1; i >= 0; i--) {
+
+            for (int j = 0; j < i; j++) {
+                if (marks[j] > marks[lowestIndex]) {
+                    lowestIndex = j;
+                }
+            }
+
+            //swop
         }
     }
 
