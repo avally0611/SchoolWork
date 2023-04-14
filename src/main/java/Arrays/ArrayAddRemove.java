@@ -21,10 +21,13 @@ public class ArrayAddRemove {
         arr[2] = 8;
         arr[3] = 11;
         arr[4] = 15;
-        arr[5] = 19;
-        arr[6] = 19;
-        arr[7] = 25;
-        size = 8;
+        arr[5] = 15;
+        arr[6] = 15;
+        arr[7] = 15;
+        arr[8] = 19;
+        arr[9] = 19;
+        arr[10] = 25;
+        size = 11;
 
 //        remove(4);
 //        System.out.println("Removing a number");
@@ -34,7 +37,7 @@ public class ArrayAddRemove {
         System.out.println("\nRemoving duplicate");
         removeDuplicate();
 
-        for (int i = 0; i <= size; i++) {
+        for (int i = 0; i < size; i++) {
             System.out.println(arr[i]);
         }
 
@@ -74,8 +77,8 @@ public class ArrayAddRemove {
 
     //imp bubble sort
     public static void removeDuplicate() {
-        for (int i = 0; i < size; i++) {
-            if (arr[i] == arr[i + 1]) {
+        for (int i = 0; i < size - 1; i++) {
+            while (arr[i] == arr[i + 1]) {
                 remove(i + 1);
             }
         }
