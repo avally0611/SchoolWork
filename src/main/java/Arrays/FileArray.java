@@ -42,8 +42,9 @@ public class FileArray {
     }
 
     public void removeDups() {
+
         for (int i = 0; i < size - 1; i++) {
-            while (strArr[i] == strArr[i + 1]) {
+            while (strArr[i].equals(strArr[i + 1])) {
                 remove(i + 1);
             }
         }
@@ -54,6 +55,23 @@ public class FileArray {
             strArr[i - 1] = strArr[i];
         }
         size--;
+    }
+
+    public void sort() {
+        for (int i = size - 1; i >= 0; i--) {
+            boolean sorted = true;
+            for (int j = 0; j < i; j++) {
+                if (strArr[j].compareTo(strArr[j + 1]) > 0) {
+                    String temp = strArr[j];
+                    strArr[j] = strArr[j + 1];
+                    strArr[j + 1] = temp;
+                    sorted = false;
+                }
+            }
+            if (sorted) {
+                break;
+            }
+        }
     }
 
 }

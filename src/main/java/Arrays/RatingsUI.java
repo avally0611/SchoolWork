@@ -8,12 +8,13 @@ package Arrays;
  *
  * @author aaminahv
  */
-public class FileArrayUI {
+public class RatingsUI {
 
     public static void main(String[] args) {
-        FileArray fa = new FileArray();
-        System.out.println(fa.toString());
-        fa.sort();
-        System.out.println(fa.toString());
+        Ratings p = new Ratings();
+        System.out.println(p.toString());
+        p.sort();
+        System.out.println(p.toString());
+
     }
 }

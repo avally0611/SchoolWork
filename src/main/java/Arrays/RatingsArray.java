@@ -31,6 +31,7 @@ public class RatingsArray {
 
     public int getSize() {
         return size;
+
     }
 
     public int getElement(int index) {
