@@ -2,21 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Arrays;
+package DatesAndTimes;
+
+import java.time.LocalDateTime;
 
 /**
  *
  * @author aaminahv
  */
-public class FileArrayUI {
+public class Starting {
 
     public static void main(String[] args) {
-        FileArray fa = new FileArray();
-//        System.out.println(fa.toString());
-//        fa.removeDups();
-//        System.out.println(fa.toString());
-//        fa.writeTo();
-        System.out.println(fa.search("Nadine"));
 
+        LocalDateTime dateTime = LocalDateTime.now();
+        System.out.println("Date: " + dateTime.getDayOfMonth() + " " + dateTime.getMonth() + " " + dateTime.getYear());
     }
+
 }

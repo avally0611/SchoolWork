@@ -7,6 +7,7 @@ package Arrays;
 import static Arrays.ArrayAddRemove.remove;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +44,7 @@ public class FileArray {
 
     public void removeDups() {
 
+        sort();
         for (int i = 0; i < size - 1; i++) {
             while (strArr[i].equals(strArr[i + 1])) {
                 remove(i + 1);
@@ -50,14 +52,14 @@ public class FileArray {
         }
     }
 
-    public void remove(int index) {
+    private void remove(int index) {
         for (int i = index + 1; i < size; i++) {
             strArr[i - 1] = strArr[i];
         }
         size--;
     }
 
-    public void sort() {
+    private void sort() {
         for (int i = size - 1; i >= 0; i--) {
             boolean sorted = true;
             for (int j = 0; j < i; j++) {
@@ -72,6 +74,41 @@ public class FileArray {
                 break;
             }
         }
+    }
+
+    public void writeTo() {
+        try {
+            PrintWriter pw = new PrintWriter(new File("data\\DuplicateNames.txt"));
+
+            for (int i = 0; i < size; i++) {
+                pw.println(strArr[i]);
+
+            }
+            pw.close();
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileArray.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public String search(String name) {
+        sort();
+        int start = 0;
+        int end = size - 1;
+
+        while (start <= end) {
+            int mid = (start + end) / 2;
+
+            if (strArr[mid].equals(name)) {
+                return strArr[mid];
+            } else if (strArr[mid].compareTo(name) < 0) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+
+        }
+        return "NO NAME FOUND";
     }
 
 }
