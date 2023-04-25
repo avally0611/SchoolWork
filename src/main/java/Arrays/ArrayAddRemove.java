@@ -29,13 +29,14 @@ public class ArrayAddRemove {
         arr[10] = 25;
         size = 11;
 
+        add(9);
 //        remove(4);
 //        System.out.println("Removing a number");
 //        for (int i = 0; i < size; i++) {
 //            System.out.println(arr[i]);
 //        }
-        System.out.println("\nRemoving duplicate");
-        removeDuplicate();
+//        System.out.println("\nRemoving duplicate");
+//        removeDuplicate();
 
         for (int i = 0; i < size; i++) {
             System.out.println(arr[i]);
@@ -45,11 +46,10 @@ public class ArrayAddRemove {
 
     public static void add(int num) {
         int pos = 0;
-        for (int i = 0; i < size - 1; i++) {
-            if (num > arr[i]) {
-                pos = i;
-                break;
-            }
+    
+        while (num > arr[pos]) {
+            pos++;     
+            
 
         }
         shiftRight(pos);
@@ -58,8 +58,8 @@ public class ArrayAddRemove {
     }
 
     private static void shiftRight(int pos) {
-        for (int i = size; i > pos; i--) {
-            arr[i] = arr[i - 1];
+        for (int i = size; i >= pos; i--) {
+            arr[i + 1] = arr[i];
         }
     }
 
