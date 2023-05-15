@@ -11,10 +11,17 @@ package examPractice;
 public class ClientUI {
 
     public static void main(String[] args) {
-        Client c = new Client("Bob Builder", "bobbuil3@gmail.com", "toolBox23", 1, 400);
+        ClientController controller = new ClientController();
 
-        System.out.println(c.toString());
+        System.out.println(controller.toString());
+        controller.sort();
+        System.out.println("In order:\n");
+        System.out.println(controller.toString());
 
+        System.out.println("============================");
+        System.out.println(controller.search("Pieters"));
+        System.out.println("============================");
+        System.out.println(controller.filterInsecureClients());
     }
 
 }

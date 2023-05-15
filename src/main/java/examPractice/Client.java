@@ -37,44 +37,56 @@ public class Client {
 
     public double calculateCurrentBill() {
         double cost = 0;
+        double adjustedUsage = 0;
 
-        if (clientTier == 0) {
-            cost = 100;
-            if (currentUsage > 0) {
+        switch (clientTier) {
+            case Client.BRONZE_TIER:
+                cost = 100;
                 cost += currentUsage * 0.80;
+                break;
 
-            }
-        } else if (clientTier == 1) {
-            cost = 180;
-            if (currentUsage > 300) {
-                cost += currentUsage * 0.75;
-            }
-        } else if (clientTier == 2) {
-            cost = 350;
-            if (currentUsage > 1000) {
-                cost += currentUsage * 0.68;
-            }
+            case Client.SILVER_TIER:
+                cost = 180;
+                if (currentUsage > 300) {
+                    adjustedUsage = currentUsage - 300;
+                }
+                cost += adjustedUsage * 0.75;
+                break;
+
+            case Client.GOLD_TIER:
+                cost = 350;
+                if (currentUsage > 1000) {
+                    adjustedUsage = currentUsage - 1000;
+                }
+                cost += adjustedUsage * 0.68;
+                break;
         }
+
         return cost;
     }
 
     public boolean isSecure() {
-        boolean strongPass = false;
-        if (password.length() - 1 >= 8) {
+        boolean isUpper = false;
+        boolean isLower = false;
+        boolean isDigit = false;
+        if (password.length() >= 8) {
 
             for (int i = 0; i < password.length(); i++) {
                 char let = password.charAt(i);
+
                 if (Character.isUpperCase(let)) {
-                    strongPass = true;
-                } else if (Character.isLowerCase(let)) {
-                    strongPass = true;
-                } else if (Character.isDigit(let)) {
-                    strongPass = true;
+                    isUpper = true;
+                }
+                if (Character.isLowerCase(let)) {
+                    isLower = true;
+                }
+                if (Character.isDigit(let)) {
+                    isDigit = true;
                 }
             }
         }
 
-        return strongPass;
+        return isUpper && isLower && isDigit;
     }
 
     public String toString() {
@@ -82,17 +94,21 @@ public class Client {
 
         String account = "";
 
-        if (clientTier == 0) {
-            account = "Bronze";
-        }
-        if (clientTier == 1) {
-            account = "Silver";
-        }
-        if (clientTier == 2) {
-            account = "Gold";
+        switch (this.clientTier) {
+            case Client.BRONZE_TIER:
+                account = "Bronze";
+                break;
+
+            case Client.SILVER_TIER:
+                account = "Silver";
+                break;
+
+            case Client.GOLD_TIER:
+                account = "Gold";
+                break;
         }
 
-        output += "USER: " + fullname + "\nACCOUNT TIER: " + account + "\nCURRENT ACCOUNT: " + currentUsage + "MB@R" + calculateCurrentBill() + "\nSECURE: " + isSecure();
+        output += "USER: " + fullname + "\nACCOUNT TIER: " + account + "\nCURRENT ACCOUNT: " + currentUsage + "MB@R" + calculateCurrentBill() + "\nSECURE: " + isSecure() + "\n";
 
         return output;
     }
