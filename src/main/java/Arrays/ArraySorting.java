@@ -59,18 +59,18 @@ public class ArraySorting {
         }
     }
 
-    //help me pls - improved
-    public void selectionSort() {
-        for (int i = size - 1; i >= 0; i--) {
-
-            for (int j = 0; j < i; j++) {
-                if (marks[j] > marks[lowestIndex]) {
-                    lowestIndex = j;
-                }
-            }
-
-            //swop
-        }
-    }
+//    //help me pls - improved
+//    public void selectionSort() {
+//        for (int i = size - 1; i >= 0; i--) {
+//
+//            for (int j = 0; j < i; j++) {
+//                if (marks[j] > marks[lowestIndex]) {
+//                    lowestIndex = j;
+//                }
+//            }
+//
+//            //swop
+//        }
+//    }
 
 }
