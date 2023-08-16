@@ -6,22 +6,23 @@ package DatesAndTimes;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author Aaminah1
  */
-public class Student 
-{
+public class Student {
+
     private String name;
     private int age;
     private int grade;
     private LocalDate dob;
 
-    public Student(String nm, int age, int grade, LocalDate dob) {
+    public Student(String nm, int gr, LocalDate dateOfBirth) {
         this.name = nm;
-        this.age = age;
-        this.dob = dob;
+        this.grade = gr;
+        this.dob = dateOfBirth;
     }
 
     public String getName() {
@@ -32,15 +33,13 @@ public class Student
         this.name = name;
     }
 
-    public int getAge() 
-    {
+    public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
         this.age = age;
     }
-
 
     public LocalDate getDob() {
         return dob;
@@ -50,14 +49,9 @@ public class Student
         this.dob = dob;
     }
 
-    
     public String toString() {
-        return "Name: " + name + "\nAge: " + age + "\nGrade: " + grade + "\nDate of Birth: ";
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy");
+        return "Name: " + name + "\nGrade: " + grade + "\nDate of Birth: " + dob.format(outputFormatter);
     }
-    
-    
-    
-    
-    
-    
+
 }

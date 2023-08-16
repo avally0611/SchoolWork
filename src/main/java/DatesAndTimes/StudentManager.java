@@ -18,67 +18,44 @@ import java.util.logging.Logger;
  *
  * @author Aaminah1
  */
-public class StudentManager 
-{
+public class StudentManager {
+
     private Student[] peeps = new Student[50];
     private int size;
-    
-    
-    public StudentManager() 
-    {
-        try 
-        {
+
+    public StudentManager() {
+        try {
             Scanner lineSc = new Scanner(new File("data/StudentDates.txt"));
-            
-            while (lineSc.hasNext())
-            {
+
+            while (lineSc.hasNext()) {
                 String line = lineSc.nextLine();
-                
+
                 Scanner sc = new Scanner(line).useDelimiter("#");
-                
+
                 String name = sc.next();
                 int grade = sc.nextInt();
                 String dob = sc.next();
-                
+
                 DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("dd-MM-yy");
                 LocalDate dateOfBirth = LocalDate.parse(dob, inputFormatter);
-                
-                int age = ageCalc(dateOfBirth);
-                
-                Student s = new Student(name, age, grade, dateOfBirth);
+
+                Student s = new Student(name, grade, dateOfBirth);
                 peeps[size] = s;
                 size++;
             }
-        } 
-        catch (FileNotFoundException ex) 
-        {
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(StudentManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private int ageCalc(LocalDate dob)
-    {
-        
-        
-        Period diff = Period.between(dob, LocalDate.now());
-        
-        int age = diff.getYears();
-        
-        return age;
-    }
 
-    
     public String toString() {
-        
+
         String output = "";
-        for (int i = 0; i < size; i++) 
-        {   
-            output += peeps[i].toString();
+        for (int i = 0; i < size; i++) {
+            output += peeps[i].toString() + "\n\n";
         }
-        
+
         return output;
     }
-    
-    
-    
+
 }

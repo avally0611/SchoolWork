@@ -2,16 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DatesAndTimes;
+package OOP;
 
 /**
  *
- * @author Aaminah1
+ * @author aaminahv
  */
-public class PersonUI 
-{
-    public static void main(String[] args) {
-        StudentManager s = new StudentManager();
-        System.out.println(s.toString());
-    }
+public class Student {
+
 }
