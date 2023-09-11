@@ -12,22 +12,21 @@ import javax.swing.JOptionPane;
  * @author Aaminah1
  */
 public class UserDetails {
+
     public static void main(String[] args) {
         String input = JOptionPane.showInputDialog("Enter your name, surname and age");
-        
-        Scanner sc = new Scanner(input);
-        String name = "";
-        String surname = "";
-        int age = 0;
-        
-        while(sc.hasNext())
-        {
-            name = sc.next();
-            surname = sc.next();
-            age = sc.nextInt();
+
+        //to acces text file
+        File f = new File("data/Recipes.txt");
+        Scanner sc = new Scanner(input).useDelimiter("#");
+
+        while (sc.hasNext()) {
+            String name = sc.next();
+            String surname = sc.next();
+            int age = sc.nextInt();
         }
-        
+
         System.out.println("Name: " + name + "\nSurname: " + surname + "\nAge: " + age);
     }
-    
+
 }

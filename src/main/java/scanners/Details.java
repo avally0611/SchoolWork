@@ -4,6 +4,7 @@
  */
 package scanners;
 
+import java.io.File;
 import javax.swing.JOptionPane;
 import java.util.*;
 
@@ -17,6 +18,7 @@ public class Details {
 
         String input = JOptionPane.showInputDialog("Enter your name, ID number, height (m), and if you smoke");
 
+        File f = new File("data/Ratings.txt");
         Scanner sc = new Scanner(input);
 
         String name = sc.next();
