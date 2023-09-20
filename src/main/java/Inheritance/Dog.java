@@ -24,7 +24,7 @@ public class Dog extends Animal {
     //allows you to edit what a parent class method does
     //method overriding
     //choose lowest on inheritance tree
-    //dynamic binding - at run time & make a choice (commiting to)
+    //dynamic binding - at run time & make a choice (commiting to) (when subclass overrides method in superclass) - runtime polymorphism
     @Override
     //must have same method signature (name, parameters)
     public void makeNoise() {

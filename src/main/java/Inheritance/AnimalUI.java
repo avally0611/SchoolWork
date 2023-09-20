@@ -44,7 +44,7 @@ public class AnimalUI {
             myPets[i].makeNoise();
 
             //you cant only do this as you cant cast a CAT to DOG
-//            ((Dog) myPets[i]).eatABone();
+            //((Dog) myPets[i]).eatABone();
             if (myPets[i] instanceof Dog) {
                 ((Dog) myPets[i]).eatABone();
             }
