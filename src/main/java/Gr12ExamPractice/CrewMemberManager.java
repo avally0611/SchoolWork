@@ -27,10 +27,10 @@ public class CrewMemberManager {
         try {
             Scanner lineSc = new Scanner(new File("data/crewmembers.txt"));
 
-            while (lineSc.hasNext()) {
-                String line = lineSc.next();
+            while (lineSc.hasNextLine()) {
+                String line = lineSc.nextLine();
 
-                Scanner sc = new Scanner(line);
+                Scanner sc = new Scanner(line).useDelimiter("#");
 
                 String fullname = sc.next();
                 int crewID = sc.nextInt();
@@ -47,7 +47,9 @@ public class CrewMemberManager {
 
                     cArr[size] = new Officer(fullname, crewID, department, rank, date);
                     size++;
-                } else {
+                } 
+                else 
+                {
                     cArr[size] = new CrewMember(fullname, crewID, department);
                     size++;
                 }
@@ -61,8 +63,10 @@ public class CrewMemberManager {
 
     public String toString() {
         String output = "";
-        for (int i = 0; i < cArr.length; i++) {
-            output += cArr[i].toString();
+        for (int i = 0; i < size; i++) 
+        {
+            
+            output += cArr[i].toString() + "\n";
         }
 
         return output;
